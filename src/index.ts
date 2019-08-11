@@ -7,8 +7,6 @@ class Sterno {
 
   static getHeatMapColor(value: number) {
     const NUM_COLORS = 4;
-    // const color = new Array(NUM_COLORS);
-    // color.fill([[0, 0, 1], [0, 1, 0], [1, 1, 0], [1, 0, 0]]);
     const color = [[0, 0, 1], [0, 1, 0], [1, 1, 0], [1, 0, 0]];
 
     let idx1 = 0,
@@ -33,6 +31,10 @@ class Sterno {
     };
 
     return rgb;
+  }
+
+  heatMap() {
+
   }
 }
 

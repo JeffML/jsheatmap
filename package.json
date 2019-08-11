@@ -1,8 +1,8 @@
 {
-  "name": "sterno",
+  "name": "jsheatmap",
   "version": "1.0.0",
   "description": "Generates heat map data",
-  "main": "index.js",
+  "main": "lib/index.js",
   "type": "module",
   "scripts": {
     "start": "npm run build:live",
