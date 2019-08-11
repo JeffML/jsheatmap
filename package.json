@@ -1,6 +1,6 @@
 {
   "name": "jsheatmap",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generates heat map data",
   "main": "lib/index.js",
   "type": "module",
