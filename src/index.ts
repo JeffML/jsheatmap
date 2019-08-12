@@ -1,8 +1,42 @@
 
 
 class Sterno {
+  headings: Array<string>
+  rows: Array<[string, number[]]>
+
   constructor(headings: string[], rows: Array<[string, number[]]>) {
-    console.log("howsa!")
+    this.headings = headings;
+    this.rows = rows;
+  }
+
+  getData(options: object = {}): {
+    headings: string[],
+    rows: { label: string, cells: { values: number[], colors: object[] } }[]
+  } {
+    const { headings } = this;
+    let high = 0;
+    let low = 0;
+
+    const rows = this.rows.map(r => {
+      const label = r[0]
+      const values = r[1]
+      high = Math.max(...values, high)
+      low = Math.min(...values, low)
+      return { label, cells: { values, colors: [] as object[] } }
+    })
+
+    const mid = (high - low) / 2 + low;
+    const diff = high - mid;
+
+    rows.forEach(row => {
+      row.cells.values.forEach((value, i) => {
+        const scale = (value - mid) / diff;
+        const color = Sterno.getHeatMapColor(scale * 0.5);
+        row.cells.colors[i] = color;
+      })
+    });
+
+    return { headings, rows };
   }
 
   static getHeatMapColor(value: number) {
@@ -31,10 +65,6 @@ class Sterno {
     };
 
     return rgb;
-  }
-
-  heatMap() {
-
   }
 }
 

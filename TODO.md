@@ -21,8 +21,8 @@ https://codepen.io/bryceyork/pen/mtqAl
   * l-distance2: square control
 
 API
-  * input: {headings: [], rows: [{name, cells: [occurrenceVal]}]
-  * output: {headings, rows: [{name, cells: [colorVal]}] }
+  * input: headings: string[], rows: Array<[string, number[]
+  * output: {headings, rows: [{name, {values,  colors: []}] }
   
 React: table representation of output
 
