@@ -11,32 +11,36 @@ class Sterno {
 
   getData(options: object = {}): {
     headings: string[],
-    rows: { label: string, cells: { values: number[], colors: object[] } }[]
+    high: number, low: number, mid: number,
+    rows: { label: string, cells: { values: number[], scales: number[], colors: object[] } }[]
   } {
     const { headings } = this;
-    let high = 0;
-    let low = 0;
+    let high = Number.MIN_SAFE_INTEGER;
+    let low = Number.MAX_SAFE_INTEGER;
 
     const rows = this.rows.map(r => {
       const label = r[0]
       const values = r[1]
       high = Math.max(...values, high)
       low = Math.min(...values, low)
-      return { label, cells: { values, colors: [] as object[] } }
+      if (low < 0) throw Error("negative input encountered")
+      return { label, cells: { values, colors: [] as object[], scales: [] as number[] } }
     })
+
 
     const mid = (high - low) / 2 + low;
     const diff = high - mid;
 
     rows.forEach(row => {
       row.cells.values.forEach((value, i) => {
-        const scale = (value - mid) / diff;
-        const color = Sterno.getHeatMapColor(scale * 0.5);
+        const scale = (value - mid) / diff * 0.5;
+        const color = Sterno.getHeatMapColor(scale);
         row.cells.colors[i] = color;
+        row.cells.scales[i] = scale;
       })
     });
 
-    return { headings, rows };
+    return { headings, high, low, mid, rows };
   }
 
   static getHeatMapColor(value: number) {
