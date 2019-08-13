@@ -33,7 +33,7 @@ class Sterno {
 
     rows.forEach(row => {
       row.cells.values.forEach((value, i) => {
-        const scale = (value - mid) / diff * 0.5;
+        const scale = (value - mid) / diff;
         const color = Sterno.getHeatMapColor(scale);
         row.cells.colors[i] = color;
         row.cells.scales[i] = scale;
