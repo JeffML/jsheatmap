@@ -6,5 +6,11 @@
 		{
 			"path": "/home/jlowery2663/projects/sternomap"
 		}
-	]
+	],
+	"settings": {
+		"cSpell.words": [
+			"heatmap",
+			"jsheatmap"
+		]
+	}
 }
