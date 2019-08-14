@@ -31,9 +31,9 @@ class ColorGradient {
   createDefaultHeatMapGradient() {
     this.color = [];
     this.color.push(new ColorPoint(0, 0, 1, 0.0));      // Blue.
-    this.color.push(new ColorPoint(0, 1, 1, 0.33));     // Cyan.
+    this.color.push(new ColorPoint(0, 1, 1, 0.34));     // Cyan.
     this.color.push(new ColorPoint(0, 1, 0, 0.5));      // Green.
-    this.color.push(new ColorPoint(1, 1, 0, 0.63));     // Yellow.
+    this.color.push(new ColorPoint(1, 1, 0, 0.66));     // Yellow.
     this.color.push(new ColorPoint(1, 0, 0, 1.0));      // Red.
   }
 

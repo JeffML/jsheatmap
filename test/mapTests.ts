@@ -1,4 +1,5 @@
-import Sterno from '../src';
+import getHeatMapColor from '../src/simple';
+import Sterno from '../src'
 import chai from 'chai';
 const should = chai.should();
 
@@ -35,11 +36,11 @@ describe('sterno tests', () => {
   })
 
   it('raw color values', () => {
-    let color = Sterno.getHeatMapColor(0)
+    let color = getHeatMapColor(0)
     color.should.eql({ red: 0, green: 0, blue: 1 }, "blue")
-    color = Sterno.getHeatMapColor(0.5);
+    color = getHeatMapColor(0.5);
     color.should.eql({ red: 0.5, green: 1, blue: 0 }, "yellow")
-    color = Sterno.getHeatMapColor(1)
+    color = getHeatMapColor(1)
     color.should.eql({ red: 1, green: 0, blue: 0 }, "red")
   })
 

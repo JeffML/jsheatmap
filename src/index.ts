@@ -1,4 +1,12 @@
 import ColorGradient from './fancy'
+import getHeatMapColor from './simple'
+
+
+enum Style { SIMPLE, FANCY }
+
+interface Options {
+  style?: Style
+}
 
 class Sterno {
   headings: Array<string>
@@ -9,7 +17,7 @@ class Sterno {
     this.rows = rows;
   }
 
-  getData(options: object = {}): {
+  getData(options?: Options): {
     headings: string[],
     high: number, low: number, mid: number,
     rows: { label: string, cells: { values: number[], scales: number[], colors: object[] } }[]
@@ -33,8 +41,11 @@ class Sterno {
     rows.forEach(row => {
       row.cells.values.forEach((value, i) => {
         const scale = (value - low) / (high - low);
-        // const color = Sterno.getHeatMapColor(scale);
-        const color = heatMapGradient.getColorAtValue(scale)
+        if (options && options.style === Style.SIMPLE) {
+          var color = getHeatMapColor(scale);
+        } else {
+          var color = heatMapGradient.getColorAtValue(scale)
+        }
         row.cells.colors[i] = color;
         row.cells.scales[i] = scale;
       })
@@ -43,34 +54,7 @@ class Sterno {
     return { headings, high, low, mid: 0, rows };
   }
 
-  static getHeatMapColor(value: number) {
-    const NUM_COLORS = 4;
-    const color = [[0, 0, 1], [0, 1, 0], [1, 1, 0], [1, 0, 0]];
-
-    let idx1 = 0,
-      idx2 = 0;
-
-    let fractBetween = 0;
-
-    if (value <= 0) {
-      idx1 = idx2 = 0
-    } else if (value >= 1) {
-      idx1 = idx2 = NUM_COLORS - 1;
-    } else {
-      const v = value * (NUM_COLORS - 1);
-      idx1 = Math.floor(v);
-      idx2 = idx1 + 1;
-      fractBetween = v - idx1;
-    }
-
-    const rgb = {
-      red: (color[idx2][0] - color[idx1][0]) * fractBetween + color[idx1][0],
-      green: (color[idx2][1] - color[idx1][1]) * fractBetween + color[idx1][1],
-      blue: (color[idx2][2] - color[idx1][2]) * fractBetween + color[idx1][2]
-    };
-
-    return rgb;
-  }
 }
 
+export { Style }
 export default Sterno;
