@@ -1,4 +1,4 @@
-
+import ColorGradient from './fancy'
 
 class Sterno {
   headings: Array<string>
@@ -27,14 +27,14 @@ class Sterno {
       return { label, cells: { values, colors: [] as object[], scales: [] as number[] } }
     })
 
-
-    // const mid = (high - low) / 2 + low;
-    // const diff = high - mid;
+    const heatMapGradient = new ColorGradient();    // Used to create a nice array of different colors.
+    heatMapGradient.createDefaultHeatMapGradient();
 
     rows.forEach(row => {
       row.cells.values.forEach((value, i) => {
         const scale = (value - low) / (high - low);
-        const color = Sterno.getHeatMapColor(scale);
+        // const color = Sterno.getHeatMapColor(scale);
+        const color = heatMapGradient.getColorAtValue(scale)
         row.cells.colors[i] = color;
         row.cells.scales[i] = scale;
       })
