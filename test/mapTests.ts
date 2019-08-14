@@ -21,7 +21,7 @@ describe('sterno tests', () => {
 
     row0.label.should.eq("flum")
     colors[0].should.eql({ red: 0, green: 0, blue: 1 })
-    scales.should.eql([-0.5, 0, 0.5])
+    scales.should.eql([0, 0.5, 1])
   })
 
   it('bad input', () => {
@@ -33,6 +33,16 @@ describe('sterno tests', () => {
     map.should.be.ok;
     (() => map.getData()).should.throw('negative input encountered')
   })
+
+  it('raw color values', () => {
+    let color = Sterno.getHeatMapColor(0)
+    color.should.eql({ red: 0, green: 0, blue: 1 }, "blue")
+    color = Sterno.getHeatMapColor(0.5);
+    color.should.eql({ red: 1, green: 1, blue: 0 }, "yellow")
+    color = Sterno.getHeatMapColor(1)
+    color.should.eql({ red: 1, green: 0, blue: 0 }, "red")
+  })
+
 })
 
 

@@ -15,7 +15,7 @@ class Sterno {
     rows: { label: string, cells: { values: number[], scales: number[], colors: object[] } }[]
   } {
     const { headings } = this;
-    let high = Number.MIN_SAFE_INTEGER;
+    let high = 0;
     let low = Number.MAX_SAFE_INTEGER;
 
     const rows = this.rows.map(r => {
@@ -28,19 +28,19 @@ class Sterno {
     })
 
 
-    const mid = (high - low) / 2 + low;
-    const diff = high - mid;
+    // const mid = (high - low) / 2 + low;
+    // const diff = high - mid;
 
     rows.forEach(row => {
       row.cells.values.forEach((value, i) => {
-        const scale = (value - mid) / diff;
+        const scale = (value - low) / (high - low);
         const color = Sterno.getHeatMapColor(scale);
         row.cells.colors[i] = color;
         row.cells.scales[i] = scale;
       })
     });
 
-    return { headings, high, low, mid, rows };
+    return { headings, high, low, mid: 0, rows };
   }
 
   static getHeatMapColor(value: number) {
@@ -53,6 +53,7 @@ class Sterno {
     let fractBetween = 0;
 
     if (value <= 0) {
+      idx1 = idx2 = 0
     } else if (value >= 1) {
       idx1 = idx2 = NUM_COLORS - 1;
     } else {
