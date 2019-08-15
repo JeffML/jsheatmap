@@ -19,7 +19,7 @@ class Sterno {
 
   getData(options?: Options): {
     headings: string[],
-    high: number, low: number, mid: number,
+    high: number, low: number,
     rows: { label: string, cells: { values: number[], scales: number[], colors: object[] } }[]
   } {
     const { headings } = this;
@@ -51,7 +51,7 @@ class Sterno {
       })
     });
 
-    return { headings, high, low, mid: 0, rows };
+    return { headings, high, low, rows };
   }
 
 }

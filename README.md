@@ -38,7 +38,215 @@ const data = heatmap.getData();
 The HeatMap will scale all values of the data (all rainy day values in this case), and scale those values to fit within the range 0 to 1.0.  Those scaled values are then converted to rgb colors based on a color gradient, with blue at the lowest scale and red at the highest.
 
 Data is returned in the following format:
-#TODO
+```json
+{
+  "headings": [
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep"
+  ],
+  "high": 9,
+  "low": 4,
+  "rows": [
+    {
+      "label": "2015",
+      "cells": {
+        "values": [
+          7,
+          5,
+          6,
+          8
+        ],
+        "colors": [
+          {
+            "red": 0.6249999999999998,
+            "green": 1,
+            "blue": 0
+          },
+          {
+            "red": 0,
+            "green": 0.588235294117647,
+            "blue": 1
+          },
+          {
+            "red": 0,
+            "green": 1,
+            "blue": 0.625
+          },
+          {
+            "red": 1,
+            "green": 0.588235294117647,
+            "blue": 0
+          }
+        ],
+        "scales": [
+          0.6,
+          0.2,
+          0.4,
+          0.8
+        ]
+      }
+    },
+    {
+      "label": "2016",
+      "cells": {
+        "values": [
+          7,
+          5,
+          5,
+          7
+        ],
+        "colors": [
+          {
+            "red": 0.6249999999999998,
+            "green": 1,
+            "blue": 0
+          },
+          {
+            "red": 0,
+            "green": 0.588235294117647,
+            "blue": 1
+          },
+          {
+            "red": 0,
+            "green": 0.588235294117647,
+            "blue": 1
+          },
+          {
+            "red": 0.6249999999999998,
+            "green": 1,
+            "blue": 0
+          }
+        ],
+        "scales": [
+          0.6,
+          0.2,
+          0.2,
+          0.6
+        ]
+      }
+    },
+    {
+      "label": "2017",
+      "cells": {
+        "values": [
+          7,
+          4,
+          5,
+          9
+        ],
+        "colors": [
+          {
+            "red": 0.6249999999999998,
+            "green": 1,
+            "blue": 0
+          },
+          {
+            "red": 0,
+            "green": 0,
+            "blue": 1
+          },
+          {
+            "red": 0,
+            "green": 0.588235294117647,
+            "blue": 1
+          },
+          {
+            "red": 1,
+            "green": 0,
+            "blue": 0
+          }
+        ],
+        "scales": [
+          0.6,
+          0,
+          0.2,
+          1
+        ]
+      }
+    },
+    {
+      "label": "2018",
+      "cells": {
+        "values": [
+          6,
+          5,
+          7,
+          8
+        ],
+        "colors": [
+          {
+            "red": 0,
+            "green": 1,
+            "blue": 0.625
+          },
+          {
+            "red": 0,
+            "green": 0.588235294117647,
+            "blue": 1
+          },
+          {
+            "red": 0.6249999999999998,
+            "green": 1,
+            "blue": 0
+          },
+          {
+            "red": 1,
+            "green": 0.588235294117647,
+            "blue": 0
+          }
+        ],
+        "scales": [
+          0.4,
+          0.2,
+          0.6,
+          0.8
+        ]
+      }
+    },
+    {
+      "label": "2019",
+      "cells": {
+        "values": [
+          8,
+          6,
+          6,
+          8
+        ],
+        "colors": [
+          {
+            "red": 1,
+            "green": 0.588235294117647,
+            "blue": 0
+          },
+          {
+            "red": 0,
+            "green": 1,
+            "blue": 0.625
+          },
+          {
+            "red": 0,
+            "green": 1,
+            "blue": 0.625
+          },
+          {
+            "red": 1,
+            "green": 0.588235294117647,
+            "blue": 0
+          }
+        ],
+        "scales": [
+          0.8,
+          0.4,
+          0.4,
+          0.8
+        ]
+      }
+    }
+  ]
+}
+```
 
 ## A visualization using React
-#TODO
+![test](./rainy.png)
