@@ -8,11 +8,13 @@ interface Options {
   style?: Style
 }
 
+type labeledValuesType = [string, number[]]
+
 class Sterno {
   headings: Array<string>
-  rows: Array<[string, number[]]>
+  rows: Array<labeledValuesType>
 
-  constructor(headings: string[], rows: Array<[string, number[]]>) {
+  constructor(headings: string[], rows: Array<labeledValuesType>) {
     this.headings = headings;
     this.rows = rows;
   }
