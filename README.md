@@ -15,7 +15,7 @@ This is largely a JavaScript transliteration of Andrew Noske's C# [sample code](
 In your Node application, import the HeatMap class from the jsheatmap module
 
 ```js
-import HeatMap from 'jsheatmap
+import HeatMap from 'jsheatmap'
 ```
 Next, construct an HeatMap instance with heading and row data.
 
@@ -249,4 +249,8 @@ Data is returned in the following format:
 ```
 
 ## A visualization using React
+I can now [write some React components](https://github.com/JeffML/sternomap/tree/master/src) to visualize the data returned.
+
 ![test](./rainy.png)
+
+In this visualization, blue indicates fewer rainy days, and red more. Inside the color boxes are the scaled values, where 0.0 is the lowest (fewest rainy days) and 1.0 is the highest (most rainy days).
