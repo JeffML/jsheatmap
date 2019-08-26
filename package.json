@@ -1,6 +1,6 @@
 {
   "name": "jsheatmap",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Generates heat map data",
   "main": "lib/index.js",
   "type": "module",
@@ -14,8 +14,12 @@
     "type": "git",
     "url": "git+https://github.com/JeffML/sterno.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "heat map",
+    "heatmap",
+    "typescript"
+  ],
+  "author": "Jeff Lowery",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/JeffML/sterno/issues"
