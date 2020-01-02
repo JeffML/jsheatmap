@@ -5,7 +5,8 @@ import getHeatMapColor from './simple'
 enum Style { SIMPLE, FANCY }
 
 interface Options {
-  style?: Style
+  style?: Style,
+  logn?: number,
 }
 
 type labeledValuesType = [string, number[]]
@@ -40,9 +41,16 @@ class Sterno {
     const heatMapGradient = new ColorGradient();    // Used to create a nice array of different colors.
     heatMapGradient.createDefaultHeatMapGradient();
 
+    const adjust = (v: number) => {
+      if (options && typeof options.logn) {
+        return Math.log(v)
+      }
+      return v;
+    }
+
     rows.forEach(row => {
       row.cells.values.forEach((value, i) => {
-        const scale = (value - low) / (high - low);
+        let scale = adjust(value - low) / adjust(high - low);
         if (options && options.style === Style.SIMPLE) {
           var color = getHeatMapColor(scale);
         } else {
