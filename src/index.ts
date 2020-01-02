@@ -6,7 +6,7 @@ enum Style { SIMPLE, FANCY }
 
 interface Options {
   style?: Style,
-  logn?: number,
+  logn?: boolean,
 }
 
 type labeledValuesType = [string, number[]]
