@@ -9,8 +9,12 @@ A common use of a heat map is to visualize frequency of occurrence of one variab
 ## About the implementation
 This is largely a JavaScript transliteration of Andrew Noske's C# [sample code](http://www.andrewnoske.com/wiki/Code_-_heatmaps_and_color_gradients).
 
+## Release history
+1.0.1 Initial release
+1.1.2 Added logarithmic scaling
+
 # Usage
-`install jsheatmap`
+`npm install jsheatmap`
 
 In your Node application, import the HeatMap class from the jsheatmap module
 
