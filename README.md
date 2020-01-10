@@ -97,7 +97,12 @@ Data is returned in the following format:
   ]
 }
 ```
-## Logarithmic Scaling
+## options
+The `getData()` method takes an optional _options_ parameter.
+
+### Logarithmic Scaling
+`heatmap.getData({logn: true})`
+
 Oftentimes, the distribution of values is skewed toward the high end, making the heatmap look mostly greenish-blue.  An example of this is a [map of the winning odds of hole cards in Texas Hold'em](https://pokermap.netlify.com/). By applying logarithmic scaling, the range of high and low scale values is decreased, making the resulting HeatMap colors less skewed.
 
 ## Extra info

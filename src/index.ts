@@ -41,7 +41,7 @@ class Sterno {
     heatMapGradient.createDefaultHeatMapGradient();
 
     const adjust = (v: number) => {
-      if (options && typeof options.logn) {
+      if (options && options.logn) {
         return Math.log(v)
       }
       return v;
