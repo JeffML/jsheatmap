@@ -9,7 +9,7 @@ interface Options {
   logn?: boolean,
 }
 
-type labeledValuesType = [string, number[]]
+type labeledValuesType = [string, number[], object[]]
 
 class Sterno {
   headings: Array<string>
@@ -30,12 +30,11 @@ class Sterno {
     let low = Number.MAX_SAFE_INTEGER;
 
     const rows = this.rows.map(r => {
-      const label = r[0]
-      const values = r[1]
+      const [label, values, extra] = r
       high = Math.max(...values, high)
       low = Math.min(...values, low)
       if (low < 0) throw Error("negative input encountered")
-      return { label, cells: { values, colors: [] as object[], scales: [] as number[] } }
+      return { label, cells: { values, colors: [] as object[], scales: [] as number[], extra } }
     })
 
     const heatMapGradient = new ColorGradient();    // Used to create a nice array of different colors.
