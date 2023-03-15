@@ -65,5 +65,4 @@ class Sterno {
 
 }
 
-export { Style }
-export default Sterno;
+export { Style, Sterno as default }
