@@ -1,6 +1,6 @@
 {
   "name": "jsheatmap",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Generates heat map data",
   "main": "lib/index.js",
   "type": "module",
@@ -34,5 +34,8 @@
     "nodemon": "^1.19.1",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "jsheatmap": "^1.2.3"
   }
 }
