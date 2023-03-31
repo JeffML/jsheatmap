@@ -1,5 +1,5 @@
-import ColorGradient from './fancy'
-import getHeatMapColor from './simple'
+import ColorGradient from './fancy.js'
+import getHeatMapColor from './simple.js'
 
 
 enum Style { SIMPLE, FANCY }
