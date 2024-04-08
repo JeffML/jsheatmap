@@ -30,8 +30,8 @@
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.7.1",
     "chai": "^4.2.0",
-    "mocha": "^6.2.0",
-    "nodemon": "^1.19.1",
+    "mocha": "^10.4.0",
+    "nodemon": "^3.1.0",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.3"
   },
